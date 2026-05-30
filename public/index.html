@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CronWatch - Cron Job Monitoring Platform</title>
+  <meta name="description" content="Monitor scheduled cron jobs in real-time. Track failures, missed runs, execution delays, and health scores across environments." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <div class="logo-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span class="logo-text">Cron<strong>Watch</strong></span>
+        <span class="logo-byline">by Priya Yadav</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features" class="nav-item">Features</a>
+        <a href="#how" class="nav-item">How It Works</a>
+        <a href="/login" class="nav-item">Login</a>
+        <a href="/signup" class="nav-cta" style="background:var(--orange);color:#fff;border-color:var(--orange);">Start Monitoring</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="container hero-content">
+      <h1>Your cron jobs are running.<br><span class="text-grad">Are they succeeding?</span></h1>
+      <p class="hero-desc">CronWatch monitors every scheduled job across your infrastructure. Get alerted on failures, track execution trends, and catch silent breakages before users do.</p>
+      <div class="hero-actions">
+        <a href="/signup" class="btn btn-primary btn-lg">Start Monitoring</a>
+        <a href="#how" class="btn btn-ghost btn-lg">See How It Works</a>
+      </div>
+
+      <!-- Mini dashboard preview -->
+      <div class="hero-preview">
+        <div class="hp-bar">
+          <div class="hp-dots"><span></span><span></span><span></span></div>
+          <span class="hp-url">cronwatch.app/dashboard</span>
+        </div>
+        <div class="hp-body">
+          <div class="hp-row">
+            <div class="hp-card"><div class="hp-card-label">Health Score</div><div class="hp-card-val hp-green">96%</div></div>
+            <div class="hp-card"><div class="hp-card-label">Uptime (7d)</div><div class="hp-card-val">99.2%</div></div>
+            <div class="hp-card"><div class="hp-card-label">Executions</div><div class="hp-card-val">1,847</div></div>
+            <div class="hp-card"><div class="hp-card-label">Failures</div><div class="hp-card-val hp-red">12</div></div>
+          </div>
+          <div class="hp-jobs">
+            <div class="hp-job"><div class="hp-job-dot hp-dot-g"></div><span class="hp-job-name">Database Backup</span><span class="hp-job-sched">Daily at 2:00 AM</span><span class="hp-job-score hp-sc-g">98</span></div>
+            <div class="hp-job"><div class="hp-job-dot hp-dot-y"></div><span class="hp-job-name">Cache Warmup</span><span class="hp-job-sched">Every 30 minutes</span><span class="hp-job-score hp-sc-y">89</span></div>
+            <div class="hp-job"><div class="hp-job-dot hp-dot-r"></div><span class="hp-job-name">Data Sync</span><span class="hp-job-sched">Every 4 hours</span><span class="hp-job-score hp-sc-r">67</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Everything you need to keep<br>your cron jobs reliable</h2>
+        <p class="section-sub">Six core capabilities designed for teams that run critical scheduled tasks.</p>
+      </div>
+      <div class="features-grid">
+        <div class="f-card">
+          <div class="f-icon f-orange"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <h3>Health Scoring</h3>
+          <p>Each job gets a 0-100 health score from its overall success rate (40%) and recent execution trend (60%). Scores map to healthy, warning, degraded, and critical.</p>
+        </div>
+        <div class="f-card">
+          <div class="f-icon f-red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+          <h3>Failure Detection</h3>
+          <p>Tracks non-zero exit codes and captures error output per run. Surfaces failure patterns with per-job failure counts and incident tracking.</p>
+        </div>
+        <div class="f-card">
+          <div class="f-icon f-yellow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3>Missed Run Detection</h3>
+          <p>Configurable grace periods per job. If a ping doesn't arrive within the expected window, CronWatch flags it as missed and triggers an alert.</p>
+        </div>
+        <div class="f-card">
+          <div class="f-icon f-green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <h3>Duration Analytics</h3>
+          <p>Per-job avg, min, max, and P95 execution durations with daily trend charts. Spot performance regressions before they become outages.</p>
+        </div>
+        <div class="f-card">
+          <div class="f-icon f-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg></div>
+          <h3>Ping Integration</h3>
+          <p>Add a single curl call to your script. CronWatch provides a unique URL per job — when the ping arrives, the run is recorded. One line of code.</p>
+        </div>
+        <div class="f-card">
+          <div class="f-icon f-purple"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+          <h3>Alert Routing</h3>
+          <p>Route failure notifications to email, Slack, or any webhook endpoint. Configure rules per job — alert on failure, missed check-in, or duration anomaly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how">
+    <div class="container">
+      <div class="section-header">
+        <h2>Up and running in 3 minutes</h2>
+        <p class="section-sub">No agents to install. No config files to manage.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-num">01</div>
+          <h3>Create a monitor</h3>
+          <p>Add your cron job with its schedule, environment, and expected duration. You get a unique ping URL instantly.</p>
+          <div class="how-code">
+            <code>POST /api/jobs</code>
+          </div>
+        </div>
+        <div class="how-card">
+          <div class="how-num">02</div>
+          <h3>Add one line to your script</h3>
+          <p>Append a curl call at the end of your cron job. CronWatch records the ping with timestamp and duration.</p>
+          <div class="how-code">
+            <code>curl -fsS cronwatch.app/ping/job_id</code>
+          </div>
+        </div>
+        <div class="how-card">
+          <div class="how-num">03</div>
+          <h3>Monitor from your dashboard</h3>
+          <p>Track health scores, view execution charts, manage incidents, and get alerted when something breaks.</p>
+          <div class="how-code">
+            <code>GET /api/dashboard</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH -->
+  <section class="tech-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built for developers, by developers</h2>
+      </div>
+      <div class="tech-row">
+        <div class="t-chip"><div class="t-dot" style="background:#68a063"></div><strong>Node.js</strong><span>Runtime</span></div>
+        <div class="t-chip"><div class="t-dot" style="background:#333"></div><strong>Express.js</strong><span>REST API</span></div>
+        <div class="t-chip"><div class="t-dot" style="background:#FF642D"></div><strong>JWT Auth</strong><span>Security</span></div>
+        <div class="t-chip"><div class="t-dot" style="background:#264de4"></div><strong>Canvas API</strong><span>Charts</span></div>
+        <div class="t-chip"><div class="t-dot" style="background:#f7df1e"></div><strong>Vanilla JS</strong><span>Frontend</span></div>
+        <div class="t-chip"><div class="t-dot" style="background:#e44d26"></div><strong>bcrypt</strong><span>Hashing</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <h2>Stop guessing if your cron jobs ran.</h2>
+      <p>Create your free account and start monitoring in under 3 minutes.</p>
+      <a href="/signup" class="btn btn-primary btn-lg">Start Monitoring</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div class="footer-left">
+        <a href="/" class="footer-logo">
+          <div class="logo-mark logo-mark-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          Cron<strong>Watch</strong>
+        </a>
+        <span class="footer-sep">/</span>
+        <span class="footer-credit">by Priya Yadav</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="/dashboard">Dashboard</a>
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="https://github.com/priyayadav200/cron-job-monitor" target="_blank">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
